@@ -1,0 +1,6 @@
+# chart info for fe
+apiVersion: v2
+name: fe
+description: frontend service - crypto price tracker
+type: application
+version: 0.1.0

@@ -1,0 +1,6 @@
+# chart info for mysql
+apiVersion: v2
+name: mysql
+description: mysql db - crypto price tracker
+type: application
+version: 0.1.0

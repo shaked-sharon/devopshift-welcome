@@ -1,0 +1,12 @@
+# config settings for be chart
+replicaCount: 2
+image:
+  name: crypto-be
+  tag: latest
+service:
+  type: ClusterIP
+  port: 5001
+env:
+  mysqlHost: mysql-service
+  mysqlUser: root
+  mysqlPassword: "123456"

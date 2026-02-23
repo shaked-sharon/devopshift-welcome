@@ -1,0 +1,8 @@
+# config settings for fe chart
+replicaCount: 2
+image:
+  name: crypto-fe
+  tag: latest
+service:
+  type: ClusterIP
+  port: 5002

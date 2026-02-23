@@ -1,0 +1,10 @@
+# config settings for mysql chart
+image:
+  name: mysql
+  tag: "8.0"
+service:
+  type: ClusterIP
+  port: 3306
+env:
+  rootPassword: "123456"
+  database: crypto_db
