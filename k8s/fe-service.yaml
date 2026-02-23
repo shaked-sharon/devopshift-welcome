@@ -1,0 +1,13 @@
+# expose fe inside cluster
+# clusterip = only internal - access via port-forward
+apiVersion: v1
+kind: Service
+metadata:
+  name: fe-service
+spec:
+  type: ClusterIP
+  selector:
+    app: web
+  ports:
+    - port: 5002
+      targetPort: 5002

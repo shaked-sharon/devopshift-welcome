@@ -1,0 +1,22 @@
+# tells k8 how to run fe
+# 2 copies always running
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fe-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+        - name: web
+          image: crypto-fe:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 5002

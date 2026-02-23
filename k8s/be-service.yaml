@@ -1,0 +1,13 @@
+# expose be only inside cluster
+# fe talks to be via service
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+spec:
+  type: ClusterIP
+  selector:
+    app: backend-service
+  ports:
+    - port: 5001
+      targetPort: 5001
