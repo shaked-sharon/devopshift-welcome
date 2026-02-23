@@ -1,9 +1,36 @@
+# runs all 3 services together on a custom network
 services:
-  web:
 
+  web:
+    build: ./fe
+    ports:
+      - "5002:5002"
+    networks:
+      - crypto-net
+    depends_on:
+      - backend-service
 
   backend-service:
-
+    build: ./be
+    ports:
+      - "5001:5001"
+    environment:
+      - MYSQL_HOST=mysqldb
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=123456
+    networks:
+      - crypto-net
+    depends_on:
+      - mysqldb
 
   mysqldb:
-      
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=crypto_db
+    networks:
+      - crypto-net
+
+networks:
+  crypto-net:
+    driver: bridge
